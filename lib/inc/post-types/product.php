@@ -12,6 +12,7 @@
     'plural_sentence' => __( 'Products', 'boilerplate_theme' )
   );
 
+
   function product_post_type() {
 
     global $product_post_type;
@@ -64,6 +65,65 @@
 
     );
 
+    /**
+      Allow this post type to use the regular post category / tag taxonomies.
+     */
+    //register_taxonomy_for_object_type( 'category', $product_post_type['single'] );
+    //register_taxonomy_for_object_type( 'post_tag', $product_post_type['single'] );
+
   }
 
   add_action('init', 'product_post_type');
+
+
+  /**
+    Custom hierarchical taxonomy (acts like regular post categories, but scoped to
+    this post type).
+   */
+  /*register_taxonomy( 'product_cat',
+    array( $product_post_type['single'] ),
+    array( 'hierarchical' => true,
+      'labels' => array(
+        'name' => __( 'Categories', 'boilerplate_theme' ),
+        'singular_name' => __( 'Category', 'boilerplate_theme' ),
+        'search_items' =>  __( 'Search Categories', 'boilerplate_theme' ),
+        'all_items' => __( 'All Categories', 'boilerplate_theme' ),
+        'parent_item' => __( 'Parent Category', 'boilerplate_theme' ),
+        'parent_item_colon' => __( 'Parent Category:', 'boilerplate_theme' ),
+        'edit_item' => __( 'Edit Category', 'boilerplate_theme' ),
+        'update_item' => __( 'Update Category', 'boilerplate_theme' ),
+        'add_new_item' => __( 'Add New Category', 'boilerplate_theme' ),
+        'new_item_name' => __( 'New Category Name', 'boilerplate_theme' )
+      ),
+      'show_admin_column' => true,
+      'show_ui' => true,
+      'query_var' => true,
+      'rewrite' => array( 'slug' => 'product_cat' ),
+    )
+  );*/
+
+
+  /**
+    Custom non-hierarchical taxonomy (acts like regular post tags, but scoped to
+    this post type).
+   */
+  /*register_taxonomy( 'product_tag',
+    array( $product_post_type['single'] ),
+    array( 'hierarchical' => false,
+      'labels' => array(
+        'name' => __( 'Tags', 'boilerplate_theme' ),
+        'singular_name' => __( 'Tag', 'boilerplate_theme' ),
+        'search_items' =>  __( 'Search Tags', 'boilerplate_theme' ),
+        'all_items' => __( 'All Tags', 'boilerplate_theme' ),
+        'parent_item' => __( 'Parent Tag', 'boilerplate_theme' ),
+        'parent_item_colon' => __( 'Parent Tag:', 'boilerplate_theme' ),
+        'edit_item' => __( 'Edit Tag', 'boilerplate_theme' ),
+        'update_item' => __( 'Update Tag', 'boilerplate_theme' ),
+        'add_new_item' => __( 'Add New Tag', 'boilerplate_theme' ),
+        'new_item_name' => __( 'New Tag Name', 'boilerplate_theme' )
+      ),
+      'show_admin_column' => true,
+      'show_ui' => true,
+      'query_var' => true,
+    )
+  );*/
