@@ -21,6 +21,16 @@
 
 
   /***********************************************************************************
+    THEME CUSTOMIZER
+   **********************************************************************************/
+
+  require_once( 'lib/inc/theme-customizer.php' );
+
+
+
+
+
+  /***********************************************************************************
     CUSTOM POST TYPES
    **********************************************************************************/
 
@@ -58,7 +68,7 @@
     Width hard cropped to 1000px, height can be anything.
    */
 
-  add_image_size( '1000xX', 1000 );
+  add_image_size( '1000x9999', 1000, 9999, true );
 
 
 
@@ -147,6 +157,23 @@
 
 
   /**
+    Get image attachment ID from it's URL.
+   */
+
+  function get_image_id_by_link($url) {
+    $parsed_url  = explode( parse_url( WP_CONTENT_URL, PHP_URL_PATH ), $url );
+    $this_host = str_ireplace( 'www.', '', parse_url( home_url(), PHP_URL_HOST ) );
+    $file_host = str_ireplace( 'www.', '', parse_url( $url, PHP_URL_HOST ) );
+    if ( ! isset( $parsed_url[1] ) || empty( $parsed_url[1] ) || ( $this_host != $file_host ) ) {
+      return;
+    }
+    global $wpdb;
+    $attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->prefix}posts WHERE guid RLIKE %s;", $parsed_url[1] ) );
+    return $attachment[0];
+  }
+
+
+  /**
     Remove `width` and `height` attributes from post thumbnail `img` elements.
    */
 
@@ -176,3 +203,14 @@
     return 'class=""';
   }
   add_filter( 'next_posts_link_attributes', 'pagination_class_next' );
+
+
+  /**
+    Remove unneeded stuff from the dashboard.
+   */
+
+  function remove_dashboard_stuff() {
+    //remove_menu_page( 'edit.php' );
+    //remove_menu_page( 'edit-comments.php' );
+  }
+  add_action( 'admin_menu', 'remove_dashboard_stuff', 999 );
