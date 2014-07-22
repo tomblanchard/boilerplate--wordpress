@@ -108,7 +108,7 @@
 
 
   /***********************************************************************************
-    VARIOUS
+    HELPERS
    **********************************************************************************/
 
   /**
@@ -118,19 +118,6 @@
   function remove_html_whitespace( $html ) {
     return preg_replace( '~>\s+<~', '><', $html );
   }
-
-
-  /**
-    `/?s=` to `/search/` in URLs.
-   */
-
-  function change_search_url_rewrite() {
-    if( is_search() && ! empty( $_GET['s'] ) ) {
-      wp_redirect( home_url( '/search/') . urlencode( get_query_var( 's' ) ) );
-      exit();
-    }
-  }
-  add_action( 'template_redirect', 'change_search_url_rewrite' );
 
 
   /**
@@ -171,6 +158,39 @@
     $attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->prefix}posts WHERE guid RLIKE %s;", $parsed_url[1] ) );
     return $attachment[0];
   }
+
+
+
+
+
+  /***********************************************************************************
+    FILTERS / ACTIONS
+   **********************************************************************************/
+
+  /**
+    `/?s=` to `/search/` in URLs.
+   */
+
+  function change_search_url_rewrite() {
+    if( is_search() && ! empty( $_GET['s'] ) ) {
+      wp_redirect( home_url( '/search/') . urlencode( get_query_var( 's' ) ) );
+      exit();
+    }
+  }
+  add_action( 'template_redirect', 'change_search_url_rewrite' );
+
+
+  /**
+    Add custom body classes.
+   */
+
+  function body_classes($classes) {
+
+    //if( is_page('about') ) $classes[] = 'page-about';
+
+    return $classes;
+  }
+  add_filter( 'body_class', 'body_classes' );
 
 
   /**
