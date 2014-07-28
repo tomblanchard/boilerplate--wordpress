@@ -57,8 +57,7 @@ module.exports = function(grunt) {
         files: 'src/scss/**/*.scss',
         tasks: ['sass:dist', 'autoprefixer:dist'],
         options: {
-          spawn: false,
-          livereload: true
+          spawn: false
         }
       },
 
@@ -66,8 +65,7 @@ module.exports = function(grunt) {
         files: 'src/js/main.js',
         tasks: ['uglify'],
         options: {
-          spawn: false,
-          livereload: true
+          spawn: false
         }
       }
     }
