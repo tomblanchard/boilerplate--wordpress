@@ -78,30 +78,36 @@
     SCRIPTS / STYLES
    **********************************************************************************/
 
-  if( ! is_admin() ) {
+  function enqueue_styles_scripts() {
 
-    wp_enqueue_style(
-      'primary',
-      get_template_directory_uri() . '/lib/css/style.min.css'
-    );
+    if( ! is_admin() ) {
 
-    wp_enqueue_style(
-      'secondary',
-      get_stylesheet_uri(),
-      array( 'primary' )
-    );
+      wp_enqueue_style(
+        'primary',
+        get_template_directory_uri() . '/lib/css/style.min.css'
+      );
 
-    wp_enqueue_script( 'jquery' );
+      wp_enqueue_style(
+        'secondary',
+        get_stylesheet_uri(),
+        array( 'primary' )
+      );
 
-    wp_enqueue_script(
-      'main',
-      get_template_directory_uri() . '/lib/js/main.min.js',
-      array( 'jquery' ),
-      false,
-      true
-    );
+      wp_enqueue_script( 'jquery' );
+
+      wp_enqueue_script(
+        'main',
+        get_template_directory_uri() . '/lib/js/main.min.js',
+        array( 'jquery' ),
+        false,
+        true
+      );
+
+    }
 
   }
+
+  add_action( 'wp_enqueue_scripts', 'enqueue_styles_scripts' );
 
 
 
