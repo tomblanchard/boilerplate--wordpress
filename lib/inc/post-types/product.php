@@ -2,7 +2,7 @@
 
   /**
     Sample custom post type, replace the `product_post_type()` function name and the
-    `$product_post_type` varialbe name / array key values with more relevant info.
+    `$product_post_type` variable name / array key values with more relevant info.
    */
 
   $product_post_type = array(

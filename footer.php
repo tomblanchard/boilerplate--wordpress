@@ -1,4 +1,4 @@
-  <p><?php _e( '&copy; Copyright', 'boilerplate_theme' ); ?> <?php echo date( 'Y' ); ?></p>
+  <?php get_template_part( 'lib/inc/template-parts/footer' ); ?>
 
   <?php wp_footer(); ?>
 
