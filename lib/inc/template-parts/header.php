@@ -3,14 +3,16 @@
   <?php bloginfo('name'); ?>
 </a>
 
-<?php
-  echo remove_html_whitespace(
-    wp_nav_menu( array(
-      'container' => '',
-      'menu' => __('The Main Menu', 'boilerplate_theme'),
-      'menu_class' => '',
-      'theme_location' => 'main-nav',
-      'echo' => false
-    ) )
-  );
-?>
+<nav>
+  <?php
+    echo remove_html_whitespace(
+      wp_nav_menu( array(
+        'container' => '',
+        'menu' => __('The Main Menu', 'boilerplate_theme'),
+        'menu_class' => '',
+        'theme_location' => 'main-nav',
+        'echo' => false
+      ) )
+    );
+  ?>
+</nav>
