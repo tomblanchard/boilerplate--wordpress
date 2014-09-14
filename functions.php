@@ -41,14 +41,76 @@
 
 
   /***********************************************************************************
+    THEME SUPPORT
+   **********************************************************************************/
+
+  function theme_support() {
+
+    add_theme_support( 'post-thumbnails' );
+
+    set_post_thumbnail_size( 125, 125, true );
+
+    add_theme_support('html5',
+      array(
+        'comment-list',
+        'comment-form',
+        'search-form',
+        'gallery',
+        'caption'
+      )
+    );
+
+    add_theme_support('custom-background',
+      array(
+        'default-image' => '',
+        'default-color' => '',
+        'wp-head-callback' => '_custom_background_cb',
+        'admin-head-callback' => '',
+        'admin-preview-callback' => ''
+      )
+    );
+
+    add_theme_support('automatic-feed-links');
+
+    add_theme_support('post-formats',
+      array(
+        'aside',
+        'gallery',
+        'link',
+        'image',
+        'quote',
+        'status',
+        'video',
+        'audio',
+        'chat'
+      )
+    );
+
+    add_theme_support('menus');
+
+  }
+
+  add_action( 'after_setup_theme', 'theme_support' );
+
+
+
+
+
+  /***********************************************************************************
     MENUS
    **********************************************************************************/
 
-  register_nav_menus(
-    array(
-      'main-nav' => __( 'The Main Menu', 'boilerplate_theme' )
-    )
-  );
+  function nav_menus() {
+
+    register_nav_menus(
+      array(
+        'main-nav' => __( 'The Main Menu', 'boilerplate_theme' )
+      )
+    );
+
+  }
+
+  add_action( 'after_setup_theme', 'nav_menus' );
 
 
 

@@ -11,7 +11,6 @@
     add_filter('wp_head', 'bones_remove_wp_widget_recent_comments_style', 1);
     add_action('wp_head', 'bones_remove_recent_comments_style', 1);
     add_filter('gallery_style', 'bones_gallery_style');
-    bones_theme_support();
     add_filter('the_content', 'bones_filter_ptags_on_images');
     add_filter('excerpt_more', 'bones_excerpt_more');
   }
@@ -75,46 +74,4 @@
   function bones_excerpt_more($more) {
     global $post;
     return '...  <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read', 'boilerplate_theme') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'boilerplate_theme') .'</a>';
-  }
-
-
-
-
-
-  /**
-    Theme support.
-  */
-
-  function bones_theme_support() {
-    add_theme_support('post-thumbnails');
-
-    set_post_thumbnail_size(125, 125, true);
-
-    add_theme_support('custom-background',
-      array(
-        'default-image' => '',
-        'default-color' => '',
-        'wp-head-callback' => '_custom_background_cb',
-        'admin-head-callback' => '',
-        'admin-preview-callback' => ''
-      )
-    );
-
-    add_theme_support('automatic-feed-links');
-
-    add_theme_support('post-formats',
-      array(
-        'aside',
-        'gallery',
-        'link',
-        'image',
-        'quote',
-        'status',
-        'video',
-        'audio',
-        'chat'
-      )
-    );
-
-    add_theme_support('menus');
   }
