@@ -4,7 +4,7 @@
     BONES
    **********************************************************************************/
 
-  require_once( 'lib/inc/bones.php' );
+  require_once( 'inc/bones.php' );
 
 
 
@@ -14,7 +14,7 @@
     PLUGINS / LIBS / CLASSES
    **********************************************************************************/
 
-  require_once( 'lib/inc/plugins/cpt-in-navmenu/cpt-in-navmenu.php' );
+  require_once( 'inc/plugins/cpt-in-navmenu/cpt-in-navmenu.php' );
 
 
 
@@ -24,7 +24,7 @@
     THEME CUSTOMIZER
    **********************************************************************************/
 
-  require_once( 'lib/inc/theme-customizer.php' );
+  require_once( 'inc/theme-customizer.php' );
 
 
 
@@ -34,7 +34,7 @@
     CUSTOM POST TYPES
    **********************************************************************************/
 
-  require_once( 'lib/inc/post-types/product.php' );
+  require_once( 'inc/post-types/product.php' );
 
 
 

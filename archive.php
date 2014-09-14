@@ -29,7 +29,7 @@
 
   <?php endwhile; ?>
 
-  <?php get_template_part( 'lib/inc/template-parts/pagination' ); ?>
+  <?php get_template_part( 'inc/template-parts/pagination' ); ?>
 
 <?php else : ?>
 

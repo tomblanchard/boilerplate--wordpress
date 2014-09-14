@@ -16,4 +16,4 @@
 
 <body <?php body_class(); ?>>
 
-  <?php get_template_part( 'lib/inc/template-parts/header' ); ?>
+  <?php get_template_part( 'inc/template-parts/header' ); ?>
