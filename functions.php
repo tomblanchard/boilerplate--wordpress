@@ -14,7 +14,7 @@
     PLUGINS / LIBS / CLASSES
    **********************************************************************************/
 
-  require_once( 'inc/plugins/cpt-in-navmenu/cpt-in-navmenu.php' );
+  //
 
 
 
