@@ -8,8 +8,8 @@
   $product_post_type = array(
     'single' => 'product',
     'plural' => 'products',
-    'single_sentence' => __( 'Product', 'boilerplate_theme' ),
-    'plural_sentence' => __( 'Products', 'boilerplate_theme' )
+    'single_sentence' => 'Product',
+    'plural_sentence' => 'Products'
   );
 
 
@@ -58,7 +58,9 @@
           'custom-fields',
           'comments',
           'revisions',
-          'sticky'
+          'sticky',
+          'page-attributes',
+          'post-formats'
         )
 
       )

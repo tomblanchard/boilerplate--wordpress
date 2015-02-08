@@ -180,6 +180,15 @@
    **********************************************************************************/
 
   /**
+    `wp_list_comments` callback.
+   */
+
+  function comments_template_custom( $comment, $args, $depth ) {
+    include( locate_template('comment.php') );
+  }
+
+
+  /**
     Remove HTML whitespace.
    */
 
@@ -212,10 +221,10 @@
 
 
   /**
-    Get image attachment ID from it's URL.
+    Get attachment ID from it's URL.
    */
 
-  function get_image_id_by_link($url) {
+  function get_attachment_id_by_url($url) {
     $parsed_url  = explode( parse_url( WP_CONTENT_URL, PHP_URL_PATH ), $url );
     $this_host = str_ireplace( 'www.', '', parse_url( home_url(), PHP_URL_HOST ) );
     $file_host = str_ireplace( 'www.', '', parse_url( $url, PHP_URL_HOST ) );

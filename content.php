@@ -12,6 +12,8 @@
 
     <?php the_content(); ?>
 
+    <?php comments_template(); ?>
+
   <?php } else { ?>
 
     <?php the_excerpt(); ?>
