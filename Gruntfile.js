@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'src/scss/framework',
+          cwd: 'src/scss',
           src: ['**/*.scss'],
           dest: 'lib/css',
           ext: '.min.css'
